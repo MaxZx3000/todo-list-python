@@ -8,6 +8,7 @@ node {
             stage('Build'){
                 // virtualenv .venv
                 // source .venv/bin/activate
+                sh "chmod +x -R ${env.WORKSPACE}"
                 sh 'python -m pip install --user -r requirements.pip'
                 sh 'python -m pip install --user -r dev-requirements.pip'
             }
