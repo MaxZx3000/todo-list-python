@@ -8,8 +8,8 @@ node {
             stage('Build'){
                 // virtualenv .venv
                 // source .venv/bin/activate
-                sh 'pip install --no-cache-dir -r requirements.pip'
-                sh 'pip install --no-cache-dir -r dev-requirements.pip'
+                sh 'pip install -m --user -r requirements.pip'
+                sh 'pip install -m --user -r dev-requirements.pip'
             }
             // stage("Test"){
             //     sh "./jenkins/scripts/test.sh"
