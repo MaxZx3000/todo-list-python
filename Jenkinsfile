@@ -6,7 +6,7 @@ def hostIp(container) {
 node {
     stage('Agent Docker Intialization'){
         docker.image('mongo:latest').withRun('-h localhost -p 27017:27017'){ c ->
-            docker.image('python:3.6').inside('-p 3000:3000 --link ${c.id}:db'){
+            docker.image('python:3.6').inside("-p 3000:3000 --link ${c.id}:db"){
                 echo "Image successfully initialized!"
                 stage("Checkout"){
                     checkout scm
