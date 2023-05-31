@@ -6,8 +6,8 @@ node {
                 checkout scm
             }
             stage('Build'){
-                virtualenv .venv
-                source .venv/bin/activate
+                // virtualenv .venv
+                // source .venv/bin/activate
                 sh 'pip install --no-cache-dir -r requirements.pip'
                 sh 'pip install --no-cache-dir -r dev-requirements.pip'
             }
