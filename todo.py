@@ -4,7 +4,7 @@ from task import TaskDAO
 import pymongo
 
 app = Flask('todoapp')
-client = pymongo.MongoClient('mongodb://172.18.0.3')
+client = pymongo.MongoClient('mongodb://172.18.0.3:3000')
 database = client.todo_list
 tasks_dao = TaskDAO(database)
 
