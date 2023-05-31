@@ -13,6 +13,7 @@ node {
             }
             stage('Test'){
                 withEnv(["HOME=${env.WORKSPACE}"]){
+                    sh 'mongod'
                     sh 'python -m pytest'
                 }
             }
