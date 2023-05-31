@@ -1,6 +1,6 @@
 node {
     stage('Agent Docker Intialization'){
-        docker.image('mongo:latest').withRun('-p 5000:5000'){
+        docker.image('mongo:latest').withRun('-p 27017:27017'){
             docker.image('python:3.6').inside('-p 3000:3000'){
                 echo "Image successfully initialized!"
                 stage("Checkout"){
