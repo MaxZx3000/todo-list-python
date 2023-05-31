@@ -13,7 +13,7 @@ node {
             }
             stage('Test'){
                 withEnv(["HOME=${env.WORKSPACE}"]){
-                    sh 'sudo service mongodb start'
+                    // sh 'sudo service mongodb start'
                     sh 'python -m pytest'
                 }
             }
