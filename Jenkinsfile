@@ -6,8 +6,8 @@ node {
                 checkout scm
             }
             stage('Build'){
-                sh 'pip install --no-cache-dir -r requirements.pip'
-                sh 'pip install --no-cache-dir -r dev-requirements.pip'
+                sh 'pip install --no-cache-dir -r requirements.pip --user'
+                sh 'pip install --no-cache-dir -r dev-requirements.pip --user'
             }
             // stage("Test"){
             //     sh "./jenkins/scripts/test.sh"
