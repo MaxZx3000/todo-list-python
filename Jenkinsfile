@@ -1,8 +1,3 @@
-def hostIp(container) {
-  sh "docker inspect -f {{.NetworkSettings.IPAddress}} ${container.id} > host.ip"
-  readFile('host.ip').trim()
-}
-
 node {
     stage('Agent Docker Intialization'){
         docker.image('mongo:5.0.15').withRun('-h localhost -p 27017:27017'){ c ->
