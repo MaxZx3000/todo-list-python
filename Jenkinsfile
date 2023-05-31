@@ -6,8 +6,10 @@ node {
                 checkout scm
             }
             stage('Build'){
-                sh 'pip install --no-cache-dir --user -r requirements.pip'
-                sh 'pip install --no-cache-dir --user -r dev-requirements.pip'
+                virtualenv .venv
+                source .venv/bin/activate
+                sh 'pip install --no-cache-dir -r requirements.pip'
+                sh 'pip install --no-cache-dir -r dev-requirements.pip'
             }
             // stage("Test"){
             //     sh "./jenkins/scripts/test.sh"
