@@ -6,11 +6,13 @@ node {
                 checkout scm
             }
             stage('Build'){
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh 'python -m pip install --user -r requirements.pip'
+                    sh 'python -m pip install --user -r dev-requirements.pip'
+                }
                 // virtualenv .venv
                 // source .venv/bin/activate
-                sh "chmod +x -R ${env.WORKSPACE}"
-                sh 'python -m pip install --user -r requirements.pip'
-                sh 'python -m pip install --user -r dev-requirements.pip'
+                
             }
             // stage("Test"){
             //     sh "./jenkins/scripts/test.sh"
