@@ -13,12 +13,9 @@ node {
             }
             stage('Test'){
                 withEnv(["HOME=${env.WORKSPACE}"]){
-                    sh 'python ./test_todo.py'
+                    sh 'python -m pytest'
                 }
             }
-            // stage("Test"){
-            //     sh "./jenkins/scripts/test.sh"
-            // }
         }
     }
 }
