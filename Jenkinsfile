@@ -10,9 +10,11 @@ node {
                     sh 'python -m pip install --user -r requirements.pip'
                     sh 'python -m pip install --user -r dev-requirements.pip'
                 }
-                // virtualenv .venv
-                // source .venv/bin/activate
-                
+            }
+            stage('Test'){
+                withEnv(["HOME=${env.WORKSPACE}"]){
+                    sh 'python ./test_todo.py'
+                }
             }
             // stage("Test"){
             //     sh "./jenkins/scripts/test.sh"
