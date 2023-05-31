@@ -12,9 +12,11 @@ node {
                 }
             }
             stage('Test'){
-                withEnv(["HOME=${env.WORKSPACE}"]){
+                docker.image('mongodb:latest').inside('-p 5000:5000'){
                     // sh 'sudo service mongodb start'
-                    sh 'python -m pytest'
+                    withEnv(["HOME=${env.WORKSPACE}"]){
+                        sh 'python -m pytest'
+                    }
                 }
             }
         }
