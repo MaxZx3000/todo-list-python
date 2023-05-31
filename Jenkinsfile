@@ -1,6 +1,6 @@
 node {
     stage('Agent Docker Intialization'){
-        docker.image('mongo:7.0').inside('-p 3000:3000'){
+        docker.image('mongo:latest').inside('-p 3000:3000'){
             echo "Image successfully initialized!"
             stage("Checkout"){
                 checkout scm
